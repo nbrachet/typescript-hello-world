@@ -1,0 +1,21 @@
+{
+  "name": "typescript-hello-world",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "serve": "live-server --port=3000 --open=/",
+    "start": "npm run build && npm run serve",
+    "dev": "npm run build && npm run serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "live-server": "^1.2.2",
+    "typescript": "^5.9.2"
+  }
+}
