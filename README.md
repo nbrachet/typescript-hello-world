@@ -1,6 +1,6 @@
 # TypeScript Hello World
 
-A simple TypeScript web application that displays "Hello World" in a browser, optimized for Vercel deployment.
+A simple TypeScript web application that displays "Hello World" in a browser, with Vercel environment detection, optimized for Vercel deployment.
 
 ## Project Structure
 
@@ -34,6 +34,27 @@ A simple TypeScript web application that displays "Hello World" in a browser, op
    ```
 
 The application will open automatically in your browser at `http://localhost:3000` and display "Hello World".
+
+## Features
+
+### Environment Detection
+
+The application automatically detects and displays the current deployment environment:
+
+- **Development**: When running locally
+- **Preview**: When deployed to Vercel preview environments (branch deployments)
+- **Production**: When deployed to Vercel production
+
+### Environment Information Displayed
+
+- Environment type (with color coding)
+- Current URL
+- Vercel region (when deployed to Vercel)
+- Git commit SHA (when available)
+- Git branch/ref (when available)
+- Build timestamp
+
+The environment information is injected at build time using Vercel's environment variables and displayed in a dedicated section on the page.
 
 ## Available Scripts
 
