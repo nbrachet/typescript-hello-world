@@ -27,7 +27,7 @@ class HelloWorldApp {
         if (window.VERCEL_ENV_INFO) {
             const envInfo = window.VERCEL_ENV_INFO;
             return {
-                environment: envInfo.VERCEL_ENV || 'unknown',
+                environment: envInfo.DETERMINED_ENV || envInfo.VERCEL_ENV || 'unknown',
                 url: envInfo.VERCEL_URL ? `https://${envInfo.VERCEL_URL}` : window.location.origin,
                 region: envInfo.VERCEL_REGION || undefined,
                 commitSha: envInfo.VERCEL_GIT_COMMIT_SHA || undefined,
@@ -91,6 +91,9 @@ class HelloWorldApp {
         switch (environment.toLowerCase()) {
             case 'production':
                 return '#22c55e'; // green
+            case 'staging':
+            case 'stage':
+                return '#8b5cf6'; // purple
             case 'preview':
                 return '#f59e0b'; // orange
             case 'development':

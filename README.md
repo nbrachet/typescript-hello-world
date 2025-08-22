@@ -41,7 +41,8 @@ The application will open automatically in your browser at `http://localhost:300
 
 The application automatically detects and displays the current deployment environment:
 
-- **Development**: When running locally
+- **Development**: When running locally or on development branches
+- **Staging**: When running with STAGE=staging or on staging/stage branches
 - **Preview**: When deployed to Vercel preview environments (branch deployments)
 - **Production**: When deployed to Vercel production
 
@@ -59,9 +60,42 @@ The environment information is injected at build time using Vercel's environment
 ## Available Scripts
 
 - `npm run build` - Compile TypeScript to JavaScript and copy HTML to public directory
+- `npm run build:staging` - Build with staging environment
 - `npm run serve` - Start the live server
 - `npm run start` - Build and serve the application
+- `npm run start:staging` - Build with staging environment and serve
 - `npm run dev` - Alias for start (build and serve)
+
+## Environment Configuration
+
+### Staging Environment
+
+You can configure the staging environment in several ways:
+
+#### Method 1: Using npm scripts
+```bash
+npm run build:staging
+npm run start:staging
+```
+
+#### Method 2: Using environment variables
+```bash
+STAGE=staging npm run build
+STAGE=staging npm run start
+```
+
+#### Method 3: Branch-based detection (on Vercel)
+The app automatically detects staging when deployed from branches containing:
+- `staging`
+- `stage`
+- `develop` (maps to development)
+- `dev` (maps to development)
+
+### Environment Colors
+- **Production**: Green
+- **Staging**: Purple
+- **Preview**: Orange  
+- **Development**: Blue
 
 ## Deployment to Vercel
 
